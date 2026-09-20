@@ -27,6 +27,24 @@ def test_normalize_order():
 # This test is intentionally disabled.
 # DO NOT enable it yet.
 
-# def test_mask_order_basic():
-#     result = mask_order("ORD-1234")
-#     assert result == "ORD-****"
+def test_mask_order_basic():
+    result = mask_order("ORD-1234")
+    assert result == "ORD-1***"
+
+def test_invalid_order_non_string():
+    assert is_valid_order(1234) is False
+
+
+def test_mask_order_short_number():
+    result = mask_order("ORD-123")
+    assert result == "ORD-***"
+
+
+def test_normalize_order_non_string():
+    with pytest.raises(TypeError):
+        normalize_order(1234)
+
+
+def test_normalize_order_adds_prefix():
+    result = normalize_order("5678")
+    assert result == "ORD-5678"
