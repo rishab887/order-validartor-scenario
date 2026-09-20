@@ -27,6 +27,6 @@ def test_normalize_order():
 # This test is intentionally disabled.
 # DO NOT enable it yet.
 
-# def test_mask_order_basic():
-#     result = mask_order("ORD-1234")
-#     assert result == "ORD-****"
+def test_mask_order_basic():
+    result = mask_order("ORD-1234")
+    assert result == "ORD-1***"
